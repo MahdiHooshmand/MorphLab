@@ -454,9 +454,20 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../adrs/" class="md-nav__link">
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -470,7 +481,163 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADR
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-001-JSON-Messaging-Protocol-and-Transport-Strategy.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-001
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-002-Execution-Frequency-and-Missing-Data-Strategy.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-002
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-003-Multi-Source-Time-Synchronization.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-003
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-004-Asset-Repository-Structure-and-Code-Standards.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-004
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-005-Extensible-Safety-Framework.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-005
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -594,7 +761,7 @@
 </tr>
 <tr>
 <td>Version</td>
-<td>0.1</td>
+<td>0.2</td>
 </tr>
 <tr>
 <td>Author</td>
@@ -608,187 +775,55 @@
 </table>
 <hr />
 <h1 id="1-abstract">1. Abstract<a class="headerlink" href="#1-abstract" title="Permanent link">&para;</a></h1>
-<p>This document defines the system boundary of MorphLab and identifies the external actors and systems that interact with the platform.</p>
-<p>The purpose of this RFC is to establish a common understanding of what belongs to MorphLab and what remains outside its responsibility.</p>
-<p>This document intentionally avoids software architecture and implementation details.</p>
+<p>This document defines the system boundary of MorphLab and identifies external actors, hardware devices, and ecosystem interactions.</p>
 <hr />
-<h1 id="2-purpose">2. Purpose<a class="headerlink" href="#2-purpose" title="Permanent link">&para;</a></h1>
-<p>MorphLab operates as the central software platform for experimental mechatronics research.</p>
-<p>The platform coordinates experiments, communicates with external systems, collects observations, executes analysis workflows, and manages experimental data.</p>
-<p>External hardware and software systems interact with MorphLab through well-defined interfaces.</p>
-<hr />
-<h1 id="3-system-boundary">3. System Boundary<a class="headerlink" href="#3-system-boundary" title="Permanent link">&para;</a></h1>
+<h1 id="2-system-boundary">2. System Boundary<a class="headerlink" href="#2-system-boundary" title="Permanent link">&para;</a></h1>
 <p>MorphLab is responsible for:</p>
 <ul>
-<li>Experiment management</li>
-<li>Configuration management</li>
-<li>Device integration</li>
-<li>Data acquisition</li>
-<li>State management</li>
-<li>Data synchronization</li>
-<li>Data logging</li>
-<li>Analysis</li>
-<li>Visualization</li>
-<li>Experiment evaluation</li>
-<li>Result generation</li>
+<li>Experiment orchestration and configuration management</li>
+<li>Device driver management and sensor abstraction</li>
+<li>Control algorithm execution and dispatching</li>
+<li>Time-synchronized data logging and dataset recording</li>
+<li>Live visualization and offline analysis execution</li>
+<li>Asset Registry management (packaging, driver management, certification tiers)</li>
 </ul>
-<p>MorphLab is <strong>not</strong> responsible for implementing hardware devices, operating systems, embedded firmware, or external software tools.</p>
+<p>MorphLab is <strong>not</strong> responsible for manufacturing hardware, providing hard real-time execution environments inside microcontrollers, or replacing CAD/physics engines.</p>
 <hr />
-<h1 id="4-external-actors">4. External Actors<a class="headerlink" href="#4-external-actors" title="Permanent link">&para;</a></h1>
-<h2 id="researcher">Researcher<a class="headerlink" href="#researcher" title="Permanent link">&para;</a></h2>
-<p>The primary user of MorphLab.</p>
-<p>Responsibilities include:</p>
-<ul>
-<li>Designing experiments</li>
-<li>Configuring experiments</li>
-<li>Executing experiments</li>
-<li>Monitoring execution</li>
-<li>Evaluating results</li>
-</ul>
+<h1 id="3-external-actors-systems">3. External Actors &amp; Systems<a class="headerlink" href="#3-external-actors-systems" title="Permanent link">&para;</a></h1>
+<h2 id="researcher-contributor">Researcher / Contributor<a class="headerlink" href="#researcher-contributor" title="Permanent link">&para;</a></h2>
+<p>Interacts with MorphLab to run experiments, analyze data, write papers, and publish new drivers or algorithms to the ecosystem.</p>
+<h2 id="controllers-microcontrollers">Controllers &amp; Microcontrollers<a class="headerlink" href="#controllers-microcontrollers" title="Permanent link">&para;</a></h2>
+<p>External hardware (e.g., ESP32, STM32, Arduino) running dedicated firmware (e.g., MicroPython, C/C++) that interfaces directly with physical sensors and motor driver circuits.</p>
+<h2 id="external-measurement-systems-smart-devices">External Measurement Systems &amp; Smart Devices<a class="headerlink" href="#external-measurement-systems-smart-devices" title="Permanent link">&para;</a></h2>
+<p>Independent hardware (e.g., Android smartphones, IMU units, motion tracking cameras) providing observations via standard transport protocols (USB, WiFi, Sockets).</p>
+<h2 id="external-analysis-publication-tools">External Analysis &amp; Publication Tools<a class="headerlink" href="#external-analysis-publication-tools" title="Permanent link">&para;</a></h2>
+<p>Scientific suites (e.g., Jupyter, MATLAB, SciPy) consuming exported MorphLab Datasets.</p>
 <hr />
-<h2 id="physical-mechanism">Physical Mechanism<a class="headerlink" href="#physical-mechanism" title="Permanent link">&para;</a></h2>
-<p>The mechanical system being investigated.</p>
-<p>The mechanism is external to MorphLab.</p>
-<p>MorphLab observes and controls the mechanism but does not define its mechanical design.</p>
-<hr />
-<h2 id="controllers">Controllers<a class="headerlink" href="#controllers" title="Permanent link">&para;</a></h2>
-<p>Embedded control hardware responsible for low-level interaction with mechanisms.</p>
-<p>Controllers execute hardware-specific logic and exchange information with MorphLab.</p>
-<p>Controllers remain external systems.</p>
-<hr />
-<h2 id="measurement-systems">Measurement Systems<a class="headerlink" href="#measurement-systems" title="Permanent link">&para;</a></h2>
-<p>Independent systems that provide experimental observations.</p>
-<p>Examples include:</p>
-<ul>
-<li>IMUs</li>
-<li>Motion capture systems</li>
-<li>Optical tracking systems</li>
-<li>Mobile devices</li>
-<li>External sensors</li>
-</ul>
-<p>MorphLab treats all measurement systems as external observation providers.</p>
-<hr />
-<h2 id="visualization-clients">Visualization Clients<a class="headerlink" href="#visualization-clients" title="Permanent link">&para;</a></h2>
-<p>External applications used to visualize experimental information.</p>
-<p>Examples may include desktop applications, web applications, or mobile interfaces.</p>
-<p>Visualization clients consume information generated by MorphLab.</p>
-<hr />
-<h2 id="data-consumers">Data Consumers<a class="headerlink" href="#data-consumers" title="Permanent link">&para;</a></h2>
-<p>External software responsible for post-processing experimental data.</p>
-<p>Examples include:</p>
-<ul>
-<li>Scientific computing environments</li>
-<li>Machine learning frameworks</li>
-<li>Statistical analysis tools</li>
-<li>Publication pipelines</li>
-</ul>
-<p>MorphLab provides data but does not control downstream analysis tools.</p>
-<hr />
-<h1 id="5-external-systems">5. External Systems<a class="headerlink" href="#5-external-systems" title="Permanent link">&para;</a></h1>
-<p>The following systems are considered external to MorphLab.</p>
-<ul>
-<li>Embedded firmware</li>
-<li>Hardware drivers</li>
-<li>Operating systems</li>
-<li>Network infrastructure</li>
-<li>Storage infrastructure</li>
-<li>Simulation software</li>
-<li>CAD software</li>
-<li>Numerical solvers</li>
-<li>Scientific software packages</li>
-</ul>
-<p>MorphLab may integrate with these systems without becoming dependent on them.</p>
-<hr />
-<h1 id="6-high-level-context">6. High-Level Context<a class="headerlink" href="#6-high-level-context" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>                   +----------------------+
-                   |      Researcher      |
-                   +----------+-----------+
-                              |
-                              |
-                              v
-                 +--------------------------+
-                 |         MorphLab         |
-                 +--------------------------+
-                  |      |        |       |
-                  |      |        |       |
-                  v      v        v       v
-          Controllers  Measurement  Visualization
-             |          Systems        Clients
-             |              |
-             +------+-------+
-                    |
-                    v
-             Physical Mechanism
-
-                    |
-                    v
-
-             Experimental Data
-
-                    |
-                    v
-
-              External Analysis
+<h1 id="4-context-diagram">4. Context Diagram<a class="headerlink" href="#4-context-diagram" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code> +------------------------+                  +-------------------------+
+ |       Researcher       |&lt;----------------&gt;|   MorphLab Ecosystem    |
+ | (User &amp; Contributor)   |                  | (Core &amp; Asset Registry) |
+ +------------------------+                  +------------+------------+
+                                                          |
+                                      +-------------------+-------------------+
+                                      |                   |                   |
+                                      v                   v                   v
+                             +-----------------+ +-----------------+ +-----------------+
+                             |   Controllers   | | External Smart  | | Data Consumers  |
+                             | (e.g. ESP32 USB)| | Devices (WiFi)  | | (Jupyter/MATLAB)|
+                             +--------+--------+ +--------+--------+ +-----------------+
+                                      |                   |
+                                      +---------+---------+
+                                                |
+                                                v
+                                     +---------------------+
+                                     | Physical Mechanism  |
+                                     | (e.g., 3-DOF Robot) |
+                                     +---------------------+
 </code></pre></div>
-<p>This diagram illustrates conceptual interactions only.</p>
-<p>It does not represent software architecture or runtime communication.</p>
 <hr />
-<h1 id="7-responsibility-model">7. Responsibility Model<a class="headerlink" href="#7-responsibility-model" title="Permanent link">&para;</a></h1>
-<p>MorphLab owns:</p>
-<ul>
-<li>Experimental workflows</li>
-<li>Experimental data</li>
-<li>Experimental metadata</li>
-<li>Data synchronization</li>
-<li>Analysis workflows</li>
-<li>Result generation</li>
-</ul>
-<p>External systems own:</p>
-<ul>
-<li>Hardware implementation</li>
-<li>Firmware implementation</li>
-<li>Physical sensing</li>
-<li>Physical actuation</li>
-<li>Mechanical behavior</li>
-<li>Operating system services</li>
-</ul>
-<hr />
-<h1 id="8-design-implications">8. Design Implications<a class="headerlink" href="#8-design-implications" title="Permanent link">&para;</a></h1>
-<p>The system boundary establishes several architectural consequences.</p>
-<ul>
-<li>
-<p>External hardware shall be replaceable.</p>
-</li>
-<li>
-<p>Multiple hardware implementations may coexist.</p>
-</li>
-<li>
-<p>Multiple measurement systems may observe the same mechanism.</p>
-</li>
-<li>
-<p>Multiple visualization clients may consume the same experimental data.</p>
-</li>
-<li>
-<p>Experimental workflows shall remain independent from specific hardware implementations.</p>
-</li>
-</ul>
-<hr />
-<h1 id="9-future-extensions">9. Future Extensions<a class="headerlink" href="#9-future-extensions" title="Permanent link">&para;</a></h1>
-<p>The defined system boundary supports future integration of additional external systems, including:</p>
-<ul>
-<li>Digital Twin platforms</li>
-<li>Hardware-in-the-loop systems</li>
-<li>Software-in-the-loop systems</li>
-<li>Cloud-based execution environments</li>
-<li>Distributed experiments</li>
-<li>Autonomous data analysis systems</li>
-</ul>
-<p>These additions should not require redefining the MorphLab system boundary.</p>
-<hr />
-<h1 id="10-summary">10. Summary<a class="headerlink" href="#10-summary" title="Permanent link">&para;</a></h1>
-<p>MorphLab acts as the central orchestration platform for experimental research.</p>
-<p>It coordinates experiments and manages scientific workflows while remaining independent from specific hardware, firmware, operating systems, and external software tools.</p>
-<p>The system boundary defined in this RFC serves as the foundation for subsequent architectural decisions.</p>
+<h1 id="5-summary">5. Summary<a class="headerlink" href="#5-summary" title="Permanent link">&para;</a></h1>
+<p>MorphLab acts as the central orchestration software and driver library repository, interfacing cleanly with external hardware controllers, smart devices, and analysis suites.</p>
 
 
 

@@ -454,9 +454,20 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../adrs/" class="md-nav__link">
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -470,7 +481,163 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADR
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-001-JSON-Messaging-Protocol-and-Transport-Strategy.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-001
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-002-Execution-Frequency-and-Missing-Data-Strategy.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-002
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-003-Multi-Source-Time-Synchronization.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-003
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-004-Asset-Repository-Structure-and-Code-Standards.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-004
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-005-Extensible-Safety-Framework.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-005
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -594,7 +761,7 @@
 </tr>
 <tr>
 <td>Version</td>
-<td>0.1</td>
+<td>0.2</td>
 </tr>
 <tr>
 <td>Author</td>
@@ -608,117 +775,105 @@
 </table>
 <hr />
 <h1 id="1-abstract">1. Abstract<a class="headerlink" href="#1-abstract" title="Permanent link">&para;</a></h1>
-<p>This document defines the long-term vision, objectives, and guiding philosophy of the MorphLab platform.</p>
-<p>MorphLab is a modular research platform intended to support the development, evaluation, and validation of mechatronic mechanisms, sensing systems, and control algorithms.</p>
-<p>The platform is designed as a reusable research environment rather than software dedicated to a single mechanism or experiment.</p>
+<p>This document defines the long-term vision, objectives, guiding philosophy, and open-source model of the MorphLab platform.</p>
+<p>MorphLab is a modular research platform and growing ecosystem intended to support the development, evaluation, and validation of mechatronic mechanisms, sensing systems, and control algorithms.</p>
+<p>The platform is designed as a reusable research environment and asset registry rather than software dedicated to a single mechanism or experiment.</p>
 <hr />
 <h1 id="2-motivation">2. Motivation<a class="headerlink" href="#2-motivation" title="Permanent link">&para;</a></h1>
 <p>Research projects in mechatronics often require repeatedly implementing similar infrastructure for communication, control, data acquisition, visualization, logging, and analysis.</p>
 <p>As hardware evolves, a significant portion of software is rewritten instead of reused.</p>
-<p>MorphLab aims to separate reusable experimental infrastructure from hardware-specific implementations, allowing researchers to focus on scientific and engineering challenges instead of rebuilding supporting software.</p>
+<p>MorphLab aims to separate reusable experimental infrastructure from hardware-specific implementations, allowing researchers to focus on scientific and engineering challenges while continuously contributing back drivers, control algorithms, and experiment templates to a shared platform ecosystem.</p>
 <hr />
 <h1 id="3-vision">3. Vision<a class="headerlink" href="#3-vision" title="Permanent link">&para;</a></h1>
-<p>The long-term vision of MorphLab is to become a unified experimental platform capable of supporting the complete lifecycle of mechatronic research.</p>
-<p>The platform should provide a common environment for:</p>
+<p>The long-term vision of MorphLab is to become a unified, community-driven experimental ecosystem capable of supporting the complete lifecycle of mechatronic research.</p>
+<p>The platform provides a common environment for:</p>
 <ul>
-<li>mechanism development</li>
-<li>controller development</li>
-<li>sensor integration</li>
-<li>experiment execution</li>
-<li>data acquisition</li>
-<li>visualization</li>
-<li>analysis</li>
-<li>algorithm evaluation</li>
-<li>reproducible research</li>
+<li>Mechanism development</li>
+<li>Controller and driver development</li>
+<li>Sensor integration and calibration</li>
+<li>Experiment execution</li>
+<li>Data acquisition and logging</li>
+<li>Live visualization and offline analysis</li>
+<li>Control algorithm evaluation</li>
+<li>Reproducible research and academic benchmarking</li>
 </ul>
-<p>In the long term, the platform should also provide the necessary foundation for Digital Twin technologies, enabling synchronization between physical systems and their virtual representations without requiring fundamental architectural changes.</p>
+<p>Through continuous use, every experiment enriches the ecosystem by expanding its driver libraries, algorithm packages, and example workflows.</p>
+<p>In the long term, the platform will also provide the necessary foundation for Digital Twin technologies, enabling synchronization between physical systems and their virtual representations without requiring fundamental architectural changes.</p>
 <hr />
 <h1 id="4-scope">4. Scope<a class="headerlink" href="#4-scope" title="Permanent link">&para;</a></h1>
-<p>MorphLab is intended for laboratory research, academic projects, and rapid prototyping.</p>
+<p>MorphLab is intended for laboratory research, academic projects, rapid prototyping, and open collaborative engineering.</p>
 <p>Typical applications include:</p>
 <ul>
 <li>Development of experimental mechanisms</li>
-<li>Control algorithm research</li>
-<li>Sensor evaluation</li>
-<li>Kinematic analysis</li>
-<li>Dynamic analysis</li>
-<li>Calibration</li>
-<li>Data acquisition</li>
-<li>Data visualization</li>
-<li>Experimental validation</li>
-<li>Academic publications</li>
+<li>Control algorithm research and comparison</li>
+<li>Sensor evaluation and noise characterization</li>
+<li>Kinematic and dynamic analysis</li>
+<li>Calibration pipelines</li>
+<li>Experimental validation for academic publications</li>
+<li>Open-source benchmark hardware and software setups</li>
 </ul>
 <hr />
 <h1 id="5-non-goals">5. Non-Goals<a class="headerlink" href="#5-non-goals" title="Permanent link">&para;</a></h1>
 <p>MorphLab is not intended to become:</p>
 <ul>
 <li>An industrial automation framework</li>
-<li>A PLC programming environment</li>
 <li>A hard real-time operating system</li>
 <li>A CAD system</li>
 <li>A physics simulation engine</li>
 <li>A commercial robotics framework</li>
 </ul>
-<p>Integration with such systems may be supported in future versions.</p>
+<p>Integration with such systems may be supported through external plugins and adapters.</p>
 <hr />
 <h1 id="6-core-principles">6. Core Principles<a class="headerlink" href="#6-core-principles" title="Permanent link">&para;</a></h1>
 <h2 id="research-first">Research First<a class="headerlink" href="#research-first" title="Permanent link">&para;</a></h2>
-<p>The platform exists to accelerate scientific research.</p>
-<p>Architectural decisions should prioritize flexibility, extensibility, and observability over optimization for a single application.</p>
+<p>The platform exists to accelerate scientific research. Architectural decisions prioritize flexibility, extensibility, and observability over optimization for a single application.</p>
 <hr />
-<h2 id="experiment-centric">Experiment-Centric<a class="headerlink" href="#experiment-centric" title="Permanent link">&para;</a></h2>
-<p>Experiments are the primary unit of work.</p>
-<p>Mechanisms, sensors, controllers, algorithms, and visualization tools exist to support experimental workflows.</p>
+<h2 id="experiment-centric-growing-ecosystem">Experiment-Centric &amp; Growing Ecosystem<a class="headerlink" href="#experiment-centric-growing-ecosystem" title="Permanent link">&para;</a></h2>
+<p>Experiments are the primary unit of work. Every experiment consumes existing platform assets and produces reusable drivers, algorithms, and templates back into the platform libraries.</p>
 <hr />
 <h2 id="hardware-independence">Hardware Independence<a class="headerlink" href="#hardware-independence" title="Permanent link">&para;</a></h2>
-<p>The platform should minimize dependency on specific hardware.</p>
-<p>Controllers, communication methods, sensors, and computing devices are expected to evolve independently.</p>
+<p>The platform minimizes dependency on specific hardware. Controllers, communication methods, sensors, and computing devices evolve independently.</p>
 <hr />
-<h2 id="mechanism-independence">Mechanism Independence<a class="headerlink" href="#mechanism-independence" title="Permanent link">&para;</a></h2>
-<p>No mechanism should receive special treatment.</p>
-<p>Each mechanism should integrate into the platform through common abstractions.</p>
-<hr />
-<h2 id="extensibility">Extensibility<a class="headerlink" href="#extensibility" title="Permanent link">&para;</a></h2>
-<p>Future capabilities should be added with minimal modification to existing components.</p>
+<h2 id="reusability-by-default">Reusability by Default<a class="headerlink" href="#reusability-by-default" title="Permanent link">&para;</a></h2>
+<p>Hardware drivers, sensor readers, and control algorithms developed during an experiment should be decoupled from experiment-specific logic so they can be published into standard libraries.</p>
 <hr />
 <h2 id="reproducibility">Reproducibility<a class="headerlink" href="#reproducibility" title="Permanent link">&para;</a></h2>
-<p>Experimental configurations, acquired data, algorithms, and metadata should be preserved to enable reproducible research.</p>
+<p>Experimental configurations, acquired data, algorithms, and metadata are preserved to enable reproducible research.</p>
 <hr />
 <h2 id="separation-of-concerns">Separation of Concerns<a class="headerlink" href="#separation-of-concerns" title="Permanent link">&para;</a></h2>
-<p>Communication, control, visualization, analysis, logging, and hardware integration should remain independent responsibilities.</p>
+<p>Communication, control, visualization, analysis, logging, and hardware integration remain independent responsibilities.</p>
 <hr />
-<h1 id="7-long-term-objectives">7. Long-Term Objectives<a class="headerlink" href="#7-long-term-objectives" title="Permanent link">&para;</a></h1>
-<p>MorphLab should gradually evolve toward supporting:</p>
+<h1 id="7-open-source-community-model">7. Open Source &amp; Community Model<a class="headerlink" href="#7-open-source-community-model" title="Permanent link">&para;</a></h1>
+<p>MorphLab is released as an open-source project under the permissive <strong>MIT License</strong>.</p>
 <ul>
-<li>Multiple experimental mechanisms</li>
-<li>Multiple controller architectures</li>
-<li>Multiple sensor systems</li>
-<li>Distributed computing</li>
-<li>Remote experimentation</li>
-<li>Digital Twin integration</li>
-<li>Hardware-in-the-loop experiments</li>
-<li>Software-in-the-loop experiments</li>
-<li>Automated experiment pipelines</li>
+<li>The core platform, official libraries, and reference drivers are free to use, modify, and distribute.</li>
+<li>Academic publications and commercial projects using MorphLab are only required to provide standard attribution as permitted by the license.</li>
+<li>Financial support and sustainability rely on voluntary grants, sponsorships, and community donations.</li>
 </ul>
 <hr />
-<h1 id="8-out-of-scope">8. Out of Scope<a class="headerlink" href="#8-out-of-scope" title="Permanent link">&para;</a></h1>
+<h1 id="8-long-term-objectives">8. Long-Term Objectives<a class="headerlink" href="#8-long-term-objectives" title="Permanent link">&para;</a></h1>
+<p>MorphLab aims to gradually evolve toward supporting:</p>
+<ul>
+<li>A comprehensive standard library of motor drivers, sensor interfaces, and control algorithms</li>
+<li>A certification system for community-contributed libraries</li>
+<li>Distributed computing and heterogeneous network setups</li>
+<li>Digital Twin integration and Hardware-in-the-Loop (HIL) testing</li>
+<li>Automated experiment pipelines and benchmarking datasets</li>
+</ul>
+<hr />
+<h1 id="9-out-of-scope">9. Out of Scope<a class="headerlink" href="#9-out-of-scope" title="Permanent link">&para;</a></h1>
 <p>This RFC intentionally does not define:</p>
 <ul>
-<li>Software architecture</li>
-<li>Runtime architecture</li>
-<li>Programming languages</li>
-<li>APIs</li>
-<li>Communication protocols</li>
-<li>Hardware platforms</li>
-<li>File formats</li>
-<li>Internal modules</li>
+<li>Software architecture or runtime design</li>
+<li>Programming languages or frameworks</li>
+<li>APIs and communication protocols</li>
+<li>Specific hardware drivers or file formats</li>
 </ul>
 <p>These subjects are specified by subsequent RFCs, ADRs, Standards, and Specifications.</p>
 <hr />
-<h1 id="9-summary">9. Summary<a class="headerlink" href="#9-summary" title="Permanent link">&para;</a></h1>
-<p>MorphLab is intended to become a reusable research platform for experimental mechatronics.</p>
-<p>Individual mechanisms, controllers, sensors, and experimental setups are expected to evolve continuously.</p>
-<p>The platform itself should remain stable, extensible, and reusable across these changes.</p>
+<h1 id="10-summary">10. Summary<a class="headerlink" href="#10-summary" title="Permanent link">&para;</a></h1>
+<p>MorphLab is a reusable research platform and accumulating ecosystem for experimental mechatronics.</p>
+<p>Individual mechanisms, controllers, sensors, and algorithms evolve continuously through experimentation. The platform provides the stable architecture, standard interfaces, and library infrastructure across these changes.</p>
 
 
 

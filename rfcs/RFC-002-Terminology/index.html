@@ -454,9 +454,20 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../adrs/" class="md-nav__link">
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -470,7 +481,163 @@
   
   
 
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ADR
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-001-JSON-Messaging-Protocol-and-Transport-Strategy.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-001
+  
+
+    
+  </span>
+  
+  
+
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-002-Execution-Frequency-and-Missing-Data-Strategy.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-002
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-003-Multi-Source-Time-Synchronization.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-003
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-004-Asset-Repository-Structure-and-Code-Standards.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-004
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adrs/ADR-005-Extensible-Safety-Framework.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ADR-005
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -594,7 +761,7 @@
 </tr>
 <tr>
 <td>Version</td>
-<td>0.1</td>
+<td>0.2</td>
 </tr>
 <tr>
 <td>Author</td>
@@ -609,222 +776,76 @@
 <hr />
 <h1 id="1-abstract">1. Abstract<a class="headerlink" href="#1-abstract" title="Permanent link">&para;</a></h1>
 <p>This document defines the official terminology used throughout the MorphLab project.</p>
-<p>The purpose of this RFC is to establish a common vocabulary for documentation, software architecture, implementation, and future research.</p>
-<p>Unless explicitly stated otherwise, all subsequent RFCs, ADRs, Standards, and Specifications shall use the terminology defined in this document.</p>
+<p>The purpose of this RFC is to establish a common vocabulary for documentation, software architecture, implementation, libraries, and future research.</p>
+<p>Subsequent RFCs, ADRs, Standards, and Specifications shall use the terminology defined in this document.</p>
 <hr />
-<h1 id="2-platform">2. Platform<a class="headerlink" href="#2-platform" title="Permanent link">&para;</a></h1>
+<h1 id="2-platform-ecosystem">2. Platform &amp; Ecosystem<a class="headerlink" href="#2-platform-ecosystem" title="Permanent link">&para;</a></h1>
+<h2 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">&para;</a></h2>
 <p>The complete software environment that supports the development, execution, monitoring, recording, and analysis of experiments.</p>
-<p>The Platform represents the entire MorphLab ecosystem.</p>
+<h2 id="asset-registry-library-ecosystem">Asset Registry / Library Ecosystem<a class="headerlink" href="#asset-registry-library-ecosystem" title="Permanent link">&para;</a></h2>
+<p>The structured collection of reusable code, drivers, control algorithms, configuration files, and experiment templates maintained across experiments.</p>
 <hr />
-<h2 id="3-experiment">3. Experiment<a class="headerlink" href="#3-experiment" title="Permanent link">&para;</a></h2>
-<p>The primary research entity within MorphLab.</p>
-<p>An Experiment represents a reproducible scientific investigation conducted to evaluate one or more hypotheses.</p>
-<p>An Experiment defines the context in which research activities are performed.</p>
-<p>The conceptual composition of an Experiment is defined in RFC-003 (Domain Model).</p>
+<h1 id="3-experiment-templates">3. Experiment &amp; Templates<a class="headerlink" href="#3-experiment-templates" title="Permanent link">&para;</a></h1>
+<h2 id="experiment">Experiment<a class="headerlink" href="#experiment" title="Permanent link">&para;</a></h2>
+<p>The primary research entity within MorphLab representing a reproducible scientific investigation.</p>
+<h2 id="example-experiment-template">Example / Experiment Template<a class="headerlink" href="#example-experiment-template" title="Permanent link">&para;</a></h2>
+<p>A pre-configured, reproducible experiment setup (including mechanism configuration, drivers, algorithms, and analysis scripts) serving as a starting point, tutorial, or research benchmark.</p>
 <hr />
-<h1 id="4-mechanism">4. Mechanism<a class="headerlink" href="#4-mechanism" title="Permanent link">&para;</a></h1>
-<p>A physical or virtual mechanical system under investigation.</p>
-<p>A Mechanism may contain moving structures, joints, transmissions, or any other mechanical elements.</p>
-<p>A Mechanism does not include controllers or software.</p>
-<p>Examples:</p>
-<ul>
-<li>Three-axis experimental platform</li>
-<li>Robotic arm</li>
-<li>Stewart platform</li>
-<li>Gimbal</li>
-<li>Inverted pendulum</li>
-</ul>
+<h1 id="4-physical-entities-hardware-abstractions">4. Physical Entities &amp; Hardware Abstractions<a class="headerlink" href="#4-physical-entities-hardware-abstractions" title="Permanent link">&para;</a></h1>
+<h2 id="mechanism">Mechanism<a class="headerlink" href="#mechanism" title="Permanent link">&para;</a></h2>
+<p>A physical or virtual mechanical structure under investigation (e.g., a 3-DOF robot, Stewart platform, inverted pendulum). It excludes software and high-level controllers.</p>
+<h2 id="device">Device<a class="headerlink" href="#device" title="Permanent link">&para;</a></h2>
+<p>Any hardware component interacting with the platform (e.g., microcontroller, IMU, smartphone, driver board).</p>
+<h2 id="controller">Controller<a class="headerlink" href="#controller" title="Permanent link">&para;</a></h2>
+<p>A Device executing low-level, deterministic control logic and directly interfacing with sensors/actuators (e.g., ESP32 running MicroPython).</p>
+<h2 id="sensor">Sensor<a class="headerlink" href="#sensor" title="Permanent link">&para;</a></h2>
+<p>A Device that measures physical quantities (e.g., encoder, potentiometer, smartphone IMU).</p>
+<h2 id="actuator">Actuator<a class="headerlink" href="#actuator" title="Permanent link">&para;</a></h2>
+<p>A Device capable of modifying the physical state of a mechanism (e.g., DC motor, stepper motor).</p>
 <hr />
-<h1 id="5-device">5. Device<a class="headerlink" href="#5-device" title="Permanent link">&para;</a></h1>
-<p>Any hardware component capable of interacting with the platform.</p>
-<p>Devices may provide sensing, actuation, communication, computation, or auxiliary functionality.</p>
-<p>Examples:</p>
-<ul>
-<li>Microcontroller</li>
-<li>IMU</li>
-<li>Motor Driver</li>
-<li>Camera</li>
-<li>Mobile Phone</li>
-<li>Force Sensor</li>
-</ul>
-<hr />
-<h1 id="6-controller">6. Controller<a class="headerlink" href="#6-controller" title="Permanent link">&para;</a></h1>
-<p>A Device responsible for executing low-level control logic and directly interacting with hardware.</p>
-<p>Typical responsibilities include:</p>
-<ul>
-<li>Reading sensors</li>
-<li>Driving actuators</li>
-<li>Executing deterministic control loops</li>
-<li>Reporting measurements</li>
-</ul>
-<p>A Controller does not perform high-level experiment management.</p>
-<hr />
-<h1 id="7-sensor">7. Sensor<a class="headerlink" href="#7-sensor" title="Permanent link">&para;</a></h1>
-<p>A Device that measures physical quantities.</p>
-<p>Examples include:</p>
-<ul>
-<li>Encoder</li>
-<li>Potentiometer</li>
-<li>IMU</li>
-<li>Camera</li>
-<li>Force Sensor</li>
-<li>Temperature Sensor</li>
-</ul>
-<p>Sensors generate observations but do not modify the physical system.</p>
-<hr />
-<h1 id="8-actuator">8. Actuator<a class="headerlink" href="#8-actuator" title="Permanent link">&para;</a></h1>
-<p>A Device capable of modifying the physical state of a mechanism.</p>
-<p>Examples include:</p>
-<ul>
-<li>DC Motor</li>
-<li>Stepper Motor</li>
-<li>Servo Motor</li>
-<li>Hydraulic Actuator</li>
-<li>Pneumatic Cylinder</li>
-</ul>
-<hr />
-<h1 id="9-data-source">9. Data Source<a class="headerlink" href="#9-data-source" title="Permanent link">&para;</a></h1>
-<p>Any provider of observable data.</p>
-<p>A Data Source may be:</p>
-<ul>
-<li>Physical Sensor</li>
-<li>Software Module</li>
-<li>External Application</li>
-<li>Simulation</li>
-<li>Remote System</li>
-</ul>
-<p>Every Sensor is a Data Source.</p>
-<p>Not every Data Source is a Sensor.</p>
-<hr />
-<h1 id="10-observation">10. Observation<a class="headerlink" href="#10-observation" title="Permanent link">&para;</a></h1>
-<p>A single measured value produced by a Data Source.</p>
-<p>Examples:</p>
-<ul>
-<li>Position</li>
-<li>Velocity</li>
-<li>Roll</li>
-<li>Pitch</li>
-<li>Yaw</li>
-<li>Acceleration</li>
-<li>Angular Velocity</li>
-</ul>
-<p>Observations always represent measurements.</p>
-<hr />
-<h1 id="11-state">11. State<a class="headerlink" href="#11-state" title="Permanent link">&para;</a></h1>
+<h1 id="5-data-control-entities">5. Data &amp; Control Entities<a class="headerlink" href="#5-data-control-entities" title="Permanent link">&para;</a></h1>
+<h2 id="data-source">Data Source<a class="headerlink" href="#data-source" title="Permanent link">&para;</a></h2>
+<p>Any provider of observable data (Physical Sensor, Software Module, Mobile App, Simulation).</p>
+<h2 id="observation">Observation<a class="headerlink" href="#observation" title="Permanent link">&para;</a></h2>
+<p>A single measured value produced by a Data Source accompanied by temporal information.</p>
+<h2 id="state">State<a class="headerlink" href="#state" title="Permanent link">&para;</a></h2>
 <p>A collection of observations describing the current condition of a system at a particular instant.</p>
-<p>State represents the best available knowledge about the system.</p>
-<p>State may contain measured, estimated, or calculated values.</p>
+<h2 id="command">Command<a class="headerlink" href="#command" title="Permanent link">&para;</a></h2>
+<p>A requested action issued to a Device or Controller (e.g., PWM duty cycle, desired velocity).</p>
+<h2 id="control-algorithm">Control Algorithm<a class="headerlink" href="#control-algorithm" title="Permanent link">&para;</a></h2>
+<p>A mathematical or computational procedure responsible for determining Commands based on State information (e.g., PID, LQR, MPC).</p>
 <hr />
-<h1 id="12-control-algorithm">12. Control Algorithm<a class="headerlink" href="#12-control-algorithm" title="Permanent link">&para;</a></h1>
-<p>An algorithm responsible for determining actuator commands based on available state information.</p>
-<p>Examples:</p>
-<ul>
-<li>PID</li>
-<li>LQR</li>
-<li>MPC</li>
-<li>Adaptive Control</li>
-<li>Reinforcement Learning</li>
-</ul>
-<p>The platform imposes no restrictions on algorithm implementation.</p>
+<h1 id="6-library-components">6. Library Components<a class="headerlink" href="#6-library-components" title="Permanent link">&para;</a></h1>
+<h2 id="driver">Driver<a class="headerlink" href="#driver" title="Permanent link">&para;</a></h2>
+<p>A software module providing a standardized abstraction for interacting with a specific Device, Sensor, or Actuator (e.g., potentiometer driver, Android IMU receiver).</p>
+<h2 id="algorithm-library">Algorithm Library<a class="headerlink" href="#algorithm-library" title="Permanent link">&para;</a></h2>
+<p>A structured repository of generic, hardware-independent Control Algorithms.</p>
+<h2 id="driver-library">Driver Library<a class="headerlink" href="#driver-library" title="Permanent link">&para;</a></h2>
+<p>A structured repository of reusable hardware Drivers.</p>
+<h2 id="certification-tier-badge">Certification Tier (Badge)<a class="headerlink" href="#certification-tier-badge" title="Permanent link">&para;</a></h2>
+<p>A standard classification indicating the maturity, quality, test coverage, and specification compliance of a Library asset:
+- <strong>Tier 1 (Experimental):</strong> Proof-of-concept code created during a specific experiment.
+- <strong>Tier 2 (Standardized):</strong> Refactored library complying with MorphLab standard interfaces.
+- <strong>Tier 3 (Certified / Core):</strong> Fully tested, documented, and maintained asset integrated into core releases.</p>
 <hr />
-<h1 id="13-command">13. Command<a class="headerlink" href="#13-command" title="Permanent link">&para;</a></h1>
-<p>A requested action issued to a Device or Controller.</p>
-<p>Examples include:</p>
-<ul>
-<li>Set Motor Velocity</li>
-<li>Set Position</li>
-<li>Enable Output</li>
-<li>Disable Output</li>
-</ul>
-<p>Commands describe desired behavior rather than measured state.</p>
-<hr />
-<h1 id="14-session">14. Session<a class="headerlink" href="#14-session" title="Permanent link">&para;</a></h1>
+<h1 id="7-workflow-operations">7. Workflow &amp; Operations<a class="headerlink" href="#7-workflow-operations" title="Permanent link">&para;</a></h1>
+<h2 id="session">Session<a class="headerlink" href="#session" title="Permanent link">&para;</a></h2>
 <p>A continuous period during which the platform operates.</p>
-<p>A Session may contain one or more Experiments.</p>
+<h2 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permanent link">&para;</a></h2>
+<p>A structured collection of recorded experimental observations, commands, events, and metadata.</p>
+<h2 id="logger">Logger<a class="headerlink" href="#logger" title="Permanent link">&para;</a></h2>
+<p>A software component responsible for capturing and storing runtime experimental data.</p>
+<h2 id="analysis">Analysis<a class="headerlink" href="#analysis" title="Permanent link">&para;</a></h2>
+<p>The process of processing datasets to extract metrics, evaluate errors, or validate models.</p>
+<h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
+<p>The graphical presentation of live or recorded experimental information.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>Structured parameter sets defining how an Experiment, Mechanism, Device, or Algorithm executes.</p>
+<h2 id="plugin">Plugin<a class="headerlink" href="#plugin" title="Permanent link">&para;</a></h2>
+<p>An external module extending platform capabilities without modifying core code.</p>
 <hr />
-<h1 id="15-dataset">15. Dataset<a class="headerlink" href="#15-dataset" title="Permanent link">&para;</a></h1>
-<p>A structured collection of recorded experimental data.</p>
-<p>Datasets may contain:</p>
-<ul>
-<li>Measurements</li>
-<li>Commands</li>
-<li>Events</li>
-<li>Metadata</li>
-<li>Configuration</li>
-</ul>
-<p>Datasets are intended for offline analysis and publication.</p>
-<hr />
-<h1 id="16-logger">16. Logger<a class="headerlink" href="#16-logger" title="Permanent link">&para;</a></h1>
-<p>A software component responsible for recording information generated during a Session or Experiment.</p>
-<p>Logging is independent of analysis.</p>
-<hr />
-<h1 id="17-analysis">17. Analysis<a class="headerlink" href="#17-analysis" title="Permanent link">&para;</a></h1>
-<p>The process of extracting information from experimental data.</p>
-<p>Analysis may include:</p>
-<ul>
-<li>Statistical processing</li>
-<li>Error estimation</li>
-<li>Performance evaluation</li>
-<li>Model validation</li>
-<li>Visualization</li>
-</ul>
-<p>Analysis does not modify recorded data.</p>
-<hr />
-<h1 id="18-visualization">18. Visualization<a class="headerlink" href="#18-visualization" title="Permanent link">&para;</a></h1>
-<p>The graphical presentation of experimental information.</p>
-<p>Visualization may include:</p>
-<ul>
-<li>Live monitoring</li>
-<li>Charts</li>
-<li>Time-series plots</li>
-<li>Three-dimensional views</li>
-<li>Dashboards</li>
-</ul>
-<p>Visualization is independent of data acquisition.</p>
-<hr />
-<h1 id="19-configuration">19. Configuration<a class="headerlink" href="#19-configuration" title="Permanent link">&para;</a></h1>
-<p>A collection of parameters describing how an Experiment is executed.</p>
-<p>Configuration may include:</p>
-<ul>
-<li>Hardware selection</li>
-<li>Control parameters</li>
-<li>Sampling rates</li>
-<li>Calibration values</li>
-<li>Experiment settings</li>
-</ul>
-<p>Configuration should be reproducible.</p>
-<hr />
-<h1 id="20-digital-twin">20. Digital Twin<a class="headerlink" href="#20-digital-twin" title="Permanent link">&para;</a></h1>
-<p>A virtual representation of a physical system synchronized with experimental data.</p>
-<p>Digital Twin support is considered a long-term capability of MorphLab and is outside the scope of the initial implementation.</p>
-<hr />
-<h1 id="21-simulation">21. Simulation<a class="headerlink" href="#21-simulation" title="Permanent link">&para;</a></h1>
-<p>A computational model that emulates the behavior of a mechanism or subsystem.</p>
-<p>Simulation may replace physical hardware during development or validation.</p>
-<p>Simulation is not required for every Experiment.</p>
-<hr />
-<h1 id="22-plugin">22. Plugin<a class="headerlink" href="#22-plugin" title="Permanent link">&para;</a></h1>
-<p>A software component that extends the platform without modifying its core.</p>
-<p>Plugins may introduce:</p>
-<ul>
-<li>Devices</li>
-<li>Mechanisms</li>
-<li>Visualizations</li>
-<li>Analysis tools</li>
-<li>Communication interfaces</li>
-</ul>
-<hr />
-<h1 id="23-future-terms">23. Future Terms<a class="headerlink" href="#23-future-terms" title="Permanent link">&para;</a></h1>
-<p>Additional terminology shall be introduced only through new RFCs or revisions to this document.</p>
-<hr />
-<h1 id="24-summary">24. Summary<a class="headerlink" href="#24-summary" title="Permanent link">&para;</a></h1>
-<p>The terminology defined in this RFC establishes the common language of MorphLab.</p>
-<p>Future documentation and software should consistently use these definitions to ensure architectural clarity and long-term maintainability.</p>
-<hr />
-<h2 id="relationship-to-other-rfcs">Relationship to Other RFCs<a class="headerlink" href="#relationship-to-other-rfcs" title="Permanent link">&para;</a></h2>
-<p>This document defines the official terminology of MorphLab.</p>
-<p>Definitions provided here intentionally avoid describing relationships between entities.</p>
-<p>The conceptual relationships between these terms are specified in RFC-003 (Domain Model).</p>
+<h1 id="8-summary">8. Summary<a class="headerlink" href="#8-summary" title="Permanent link">&para;</a></h1>
+<p>This terminology forms the shared vocabulary of MorphLab. Subsequent documents must adhere to these definitions.</p>
 
 
 

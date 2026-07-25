@@ -11,8 +11,6 @@
       
       
       
-        <link rel="prev" href="../RFC-004-System-Context/">
-      
       
       
         
@@ -23,7 +21,7 @@
     
     
       
-        <title>RFC-005 - MorphLab</title>
+        <title>ADR-001: JSON Messaging Protocol and Transport Strategy - MorphLab</title>
       
     
     
@@ -64,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rfc-005-design-principles" class="md-skip">
+        <a href="#adr-001-json-messaging-protocol-and-transport-strategy" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RFC-005
+              ADR-001: JSON Messaging Protocol and Transport Strategy
             
           </span>
         </div>
@@ -244,20 +242,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -278,7 +274,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -296,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RFC-001-Platform-Vision/" class="md-nav__link">
+      <a href="../../rfcs/RFC-001-Platform-Vision/" class="md-nav__link">
         
   
   
@@ -324,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RFC-002-Terminology/" class="md-nav__link">
+      <a href="../../rfcs/RFC-002-Terminology/" class="md-nav__link">
         
   
   
@@ -352,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RFC-003-Domain-Model/" class="md-nav__link">
+      <a href="../../rfcs/RFC-003-Domain-Model/" class="md-nav__link">
         
   
   
@@ -380,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RFC-004-System-Context/" class="md-nav__link">
+      <a href="../../rfcs/RFC-004-System-Context/" class="md-nav__link">
         
   
   
@@ -405,19 +401,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../rfcs/RFC-005-Design-Principles/" class="md-nav__link">
         
   
   
@@ -433,7 +420,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -500,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adrs/ADR-001-JSON-Messaging-Protocol-and-Transport-Strategy.md" class="md-nav__link">
+      <a href="../ADR-001-JSON-Messaging-Protocol-and-Transport-Strategy.md" class="md-nav__link">
         
   
   
@@ -528,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adrs/ADR-002-Execution-Frequency-and-Missing-Data-Strategy.md" class="md-nav__link">
+      <a href="../ADR-002-Execution-Frequency-and-Missing-Data-Strategy.md" class="md-nav__link">
         
   
   
@@ -556,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adrs/ADR-003-Multi-Source-Time-Synchronization.md" class="md-nav__link">
+      <a href="../ADR-003-Multi-Source-Time-Synchronization.md" class="md-nav__link">
         
   
   
@@ -584,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adrs/ADR-004-Asset-Repository-Structure-and-Code-Standards.md" class="md-nav__link">
+      <a href="../ADR-004-Asset-Repository-Structure-and-Code-Standards.md" class="md-nav__link">
         
   
   
@@ -612,7 +598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../adrs/ADR-005-Extensible-Safety-Framework.md" class="md-nav__link">
+      <a href="../ADR-005-Extensible-Safety-Framework.md" class="md-nav__link">
         
   
   
@@ -732,7 +718,7 @@
   
 
 
-<h1 id="rfc-005-design-principles">RFC-005: Design Principles<a class="headerlink" href="#rfc-005-design-principles" title="Permanent link">&para;</a></h1>
+<h1 id="adr-001-json-messaging-protocol-and-transport-strategy">ADR-001: JSON Messaging Protocol and Transport Strategy<a class="headerlink" href="#adr-001-json-messaging-protocol-and-transport-strategy" title="Permanent link">&para;</a></h1>
 <table>
 <thead>
 <tr>
@@ -742,12 +728,12 @@
 </thead>
 <tbody>
 <tr>
-<td>RFC</td>
-<td>RFC-005</td>
+<td>ADR</td>
+<td>ADR-001</td>
 </tr>
 <tr>
 <td>Title</td>
-<td>Design Principles</td>
+<td>JSON Messaging Protocol and Transport Strategy</td>
 </tr>
 <tr>
 <td>Project</td>
@@ -755,48 +741,54 @@
 </tr>
 <tr>
 <td>Status</td>
-<td>Draft</td>
+<td>Accepted</td>
 </tr>
 <tr>
-<td>Version</td>
-<td>0.2</td>
+<td>Date</td>
+<td>2026-07-25</td>
 </tr>
 <tr>
-<td>Author</td>
+<td>Authors</td>
 <td>Mahdi Hooshmand</td>
 </tr>
 <tr>
-<td>Created</td>
-<td>YYYY-MM-DD</td>
+<td>RFC Reference</td>
+<td>RFC-005 (Section 2.5 &amp; 2.6)</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h1 id="1-abstract">1. Abstract<a class="headerlink" href="#1-abstract" title="Permanent link">&para;</a></h1>
-<p>This document defines the fundamental design principles governing MorphLab software architecture and ecosystem growth.</p>
+<h1 id="1-context">1. Context<a class="headerlink" href="#1-context" title="Permanent link">&para;</a></h1>
+<p>MorphLab requires a flexible, decoupled, and human-readable messaging protocol to exchange data between heterogeneous hardware nodes (e.g., Linux Laptop host, ESP32 microcontrollers, and Android smartphones).</p>
+<p>The platform requires minimal mandatory overhead to allow rapid integration of low-resource devices while maintaining structured data exchange across different device categories.</p>
 <hr />
-<h1 id="2-core-architectural-principles">2. Core Architectural Principles<a class="headerlink" href="#2-core-architectural-principles" title="Permanent link">&para;</a></h1>
-<h2 id="21-research-first">2.1 Research First<a class="headerlink" href="#21-research-first" title="Permanent link">&para;</a></h2>
-<p>Prioritize flexibility, observability, and scientific rigor over premature performance optimization.</p>
-<h2 id="22-reusability-by-default-continuous-accumulation">2.2 Reusability by Default &amp; Continuous Accumulation<a class="headerlink" href="#22-reusability-by-default-continuous-accumulation" title="Permanent link">&para;</a></h2>
-<p>Every driver, sensor reader, or control algorithm developed for a specific experiment must be designed as a standalone, modular component to continuously grow the platform's asset registry.</p>
-<h2 id="23-progressive-certification">2.3 Progressive Certification<a class="headerlink" href="#23-progressive-certification" title="Permanent link">&para;</a></h2>
-<p>Platform quality is maintained through non-blocking maturity tiers (Tier 1: Experimental, Tier 2: Standardized, Tier 3: Certified). Development flexibility is preserved for researchers while ensuring stability for core users.</p>
-<h2 id="24-hardware-device-abstraction">2.4 Hardware &amp; Device Abstraction<a class="headerlink" href="#24-hardware-device-abstraction" title="Permanent link">&para;</a></h2>
-<p>The platform interacts with capabilities (e.g., <code>PositionSensor</code>, <code>VoltageActuator</code>) rather than specific hardware implementations.</p>
-<h2 id="25-transport-independence">2.5 Transport Independence<a class="headerlink" href="#25-transport-independence" title="Permanent link">&para;</a></h2>
-<p>Communication mechanisms (Serial, TCP, UDP, WebSockets) are implementation details. The conceptual data pipeline remains independent of the transport layer.</p>
-<h2 id="26-data-centric-architecture-structured-messaging">2.6 Data-Centric Architecture &amp; Structured Messaging<a class="headerlink" href="#26-data-centric-architecture-structured-messaging" title="Permanent link">&para;</a></h2>
-<p>Components exchange human-readable, structured data (e.g., JSON packets) rather than platform-specific binary objects whenever bandwidth permits.</p>
-<h2 id="27-time-aware-data">2.7 Time-Aware Data<a class="headerlink" href="#27-time-aware-data" title="Permanent link">&para;</a></h2>
-<p>Observations preserve temporal metadata (timestamps) at creation or arrival to enable multi-source data synchronization, replay, and offline calibration.</p>
-<h2 id="28-separation-of-concerns">2.8 Separation of Concerns<a class="headerlink" href="#28-separation-of-concerns" title="Permanent link">&para;</a></h2>
-<p>Driver execution, control loops, data logging, visualization, and offline analysis remain strictly decoupled.</p>
-<h2 id="29-technology-neutrality-open-source">2.9 Technology Neutrality &amp; Open Source<a class="headerlink" href="#29-technology-neutrality-open-source" title="Permanent link">&para;</a></h2>
-<p>Core concepts remain technology-neutral. Platform code is released under the permissive MIT open-source license.</p>
+<h1 id="2-decision">2. Decision<a class="headerlink" href="#2-decision" title="Permanent link">&para;</a></h1>
+<ol>
+<li><strong>Format:</strong> All telemetry, commands, and observations exchanged over IP and Serial networks shall use JSON-encoded text packets.</li>
+<li><strong>Minimal Schema Requirements:</strong></li>
+<li><strong>Base Packet (All Nodes):</strong> Must contain only two mandatory fields:<ul>
+<li><code>id</code>: String identifier for the source device or module.</li>
+<li><code>timestamp</code>: Numeric timestamp (local hardware tick or epoch).</li>
+</ul>
+</li>
+<li><strong>Sensor Observations:</strong> Must include a <code>value</code> field containing numerical data, arrays, or structured sensor readings.</li>
+<li><strong>Actuator Commands:</strong> Payload fields are dynamic and customized based on the target actuator type (e.g., PWM duty cycles, desired position, step counts). All additional metadata fields remain optional.</li>
+<li><strong>Transport Protocol:</strong></li>
+<li><strong>IP-Based Nodes (WiFi/Network):</strong> <strong>WebSockets</strong> is selected as the primary transport protocol. The host system (Laptop) operates as the high-capacity WebSocket Server, while smart devices (Android) and microcontrollers (ESP32) act as lightweight WebSocket Clients. Standard TCP/UDP sockets remain supported as secondary fallbacks for ultra-constrained hardware.</li>
+<li><strong>Direct Hardware (USB/Serial):</strong> Standard framing over UART/Serial is used for microcontrollers connected directly via USB.</li>
+</ol>
 <hr />
-<h1 id="3-summary">3. Summary<a class="headerlink" href="#3-summary" title="Permanent link">&para;</a></h1>
-<p>These principles ensure MorphLab remains stable, extensible, and capable of accumulating research value over time.</p>
+<h1 id="3-consequences">3. Consequences<a class="headerlink" href="#3-consequences" title="Permanent link">&para;</a></h1>
+<h3 id="positive">Positive<a class="headerlink" href="#positive" title="Permanent link">&para;</a></h3>
+<ul>
+<li>High developer accessibility, ease of debugging, and human readability.</li>
+<li>Minimal mandatory payload size ensures rapid driver implementation.</li>
+<li>WebSocket provides bi-directional, full-duplex communication with low overhead for WiFi-connected devices.</li>
+</ul>
+<h3 id="negative-trade-offs">Negative / Trade-offs<a class="headerlink" href="#negative-trade-offs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Text-based JSON incurs slightly higher network bandwidth compared to packed binary protocols, which is acceptable for the laboratory bandwidth in scope.</li>
+</ul>
 
 
 
