@@ -6,7 +6,7 @@
 | Title | Terminology |
 | Project | MorphLab |
 | Status | Draft |
-| Version | 0.1 |
+| Version | 0.2 |
 | Author | Mahdi Hooshmand |
 | Created | YYYY-MM-DD |
 
@@ -16,320 +16,114 @@
 
 This document defines the official terminology used throughout the MorphLab project.
 
-The purpose of this RFC is to establish a common vocabulary for documentation, software architecture, implementation, and future research.
+The purpose of this RFC is to establish a common vocabulary for documentation, software architecture, implementation, libraries, and future research.
 
-Unless explicitly stated otherwise, all subsequent RFCs, ADRs, Standards, and Specifications shall use the terminology defined in this document.
+Subsequent RFCs, ADRs, Standards, and Specifications shall use the terminology defined in this document.
 
 ---
 
-# 2. Platform
+# 2. Platform & Ecosystem
 
+## Platform
 The complete software environment that supports the development, execution, monitoring, recording, and analysis of experiments.
 
-The Platform represents the entire MorphLab ecosystem.
+## Asset Registry / Library Ecosystem
+The structured collection of reusable code, drivers, control algorithms, configuration files, and experiment templates maintained across experiments.
 
 ---
 
-## 3. Experiment
+# 3. Experiment & Templates
 
-The primary research entity within MorphLab.
+## Experiment
+The primary research entity within MorphLab representing a reproducible scientific investigation.
 
-An Experiment represents a reproducible scientific investigation conducted to evaluate one or more hypotheses.
-
-An Experiment defines the context in which research activities are performed.
-
-The conceptual composition of an Experiment is defined in RFC-003 (Domain Model).
+## Example / Experiment Template
+A pre-configured, reproducible experiment setup (including mechanism configuration, drivers, algorithms, and analysis scripts) serving as a starting point, tutorial, or research benchmark.
 
 ---
 
-# 4. Mechanism
+# 4. Physical Entities & Hardware Abstractions
 
-A physical or virtual mechanical system under investigation.
+## Mechanism
+A physical or virtual mechanical structure under investigation (e.g., a 3-DOF robot, Stewart platform, inverted pendulum). It excludes software and high-level controllers.
 
-A Mechanism may contain moving structures, joints, transmissions, or any other mechanical elements.
+## Device
+Any hardware component interacting with the platform (e.g., microcontroller, IMU, smartphone, driver board).
 
-A Mechanism does not include controllers or software.
+## Controller
+A Device executing low-level, deterministic control logic and directly interfacing with sensors/actuators (e.g., ESP32 running MicroPython).
 
-Examples:
+## Sensor
+A Device that measures physical quantities (e.g., encoder, potentiometer, smartphone IMU).
 
-- Three-axis experimental platform
-- Robotic arm
-- Stewart platform
-- Gimbal
-- Inverted pendulum
-
----
-
-# 5. Device
-
-Any hardware component capable of interacting with the platform.
-
-Devices may provide sensing, actuation, communication, computation, or auxiliary functionality.
-
-Examples:
-
-- Microcontroller
-- IMU
-- Motor Driver
-- Camera
-- Mobile Phone
-- Force Sensor
+## Actuator
+A Device capable of modifying the physical state of a mechanism (e.g., DC motor, stepper motor).
 
 ---
 
-# 6. Controller
+# 5. Data & Control Entities
 
-A Device responsible for executing low-level control logic and directly interacting with hardware.
+## Data Source
+Any provider of observable data (Physical Sensor, Software Module, Mobile App, Simulation).
 
-Typical responsibilities include:
+## Observation
+A single measured value produced by a Data Source accompanied by temporal information.
 
-- Reading sensors
-- Driving actuators
-- Executing deterministic control loops
-- Reporting measurements
-
-A Controller does not perform high-level experiment management.
-
----
-
-# 7. Sensor
-
-A Device that measures physical quantities.
-
-Examples include:
-
-- Encoder
-- Potentiometer
-- IMU
-- Camera
-- Force Sensor
-- Temperature Sensor
-
-Sensors generate observations but do not modify the physical system.
-
----
-
-# 8. Actuator
-
-A Device capable of modifying the physical state of a mechanism.
-
-Examples include:
-
-- DC Motor
-- Stepper Motor
-- Servo Motor
-- Hydraulic Actuator
-- Pneumatic Cylinder
-
----
-
-# 9. Data Source
-
-Any provider of observable data.
-
-A Data Source may be:
-
-- Physical Sensor
-- Software Module
-- External Application
-- Simulation
-- Remote System
-
-Every Sensor is a Data Source.
-
-Not every Data Source is a Sensor.
-
----
-
-# 10. Observation
-
-A single measured value produced by a Data Source.
-
-Examples:
-
-- Position
-- Velocity
-- Roll
-- Pitch
-- Yaw
-- Acceleration
-- Angular Velocity
-
-Observations always represent measurements.
-
----
-
-# 11. State
-
+## State
 A collection of observations describing the current condition of a system at a particular instant.
 
-State represents the best available knowledge about the system.
+## Command
+A requested action issued to a Device or Controller (e.g., PWM duty cycle, desired velocity).
 
-State may contain measured, estimated, or calculated values.
-
----
-
-# 12. Control Algorithm
-
-An algorithm responsible for determining actuator commands based on available state information.
-
-Examples:
-
-- PID
-- LQR
-- MPC
-- Adaptive Control
-- Reinforcement Learning
-
-The platform imposes no restrictions on algorithm implementation.
+## Control Algorithm
+A mathematical or computational procedure responsible for determining Commands based on State information (e.g., PID, LQR, MPC).
 
 ---
 
-# 13. Command
+# 6. Library Components
 
-A requested action issued to a Device or Controller.
+## Driver
+A software module providing a standardized abstraction for interacting with a specific Device, Sensor, or Actuator (e.g., potentiometer driver, Android IMU receiver).
 
-Examples include:
+## Algorithm Library
+A structured repository of generic, hardware-independent Control Algorithms.
 
-- Set Motor Velocity
-- Set Position
-- Enable Output
-- Disable Output
+## Driver Library
+A structured repository of reusable hardware Drivers.
 
-Commands describe desired behavior rather than measured state.
+## Certification Tier (Badge)
+A standard classification indicating the maturity, quality, test coverage, and specification compliance of a Library asset:
+- **Tier 1 (Experimental):** Proof-of-concept code created during a specific experiment.
+- **Tier 2 (Standardized):** Refactored library complying with MorphLab standard interfaces.
+- **Tier 3 (Certified / Core):** Fully tested, documented, and maintained asset integrated into core releases.
 
 ---
 
-# 14. Session
+# 7. Workflow & Operations
 
+## Session
 A continuous period during which the platform operates.
 
-A Session may contain one or more Experiments.
+## Dataset
+A structured collection of recorded experimental observations, commands, events, and metadata.
+
+## Logger
+A software component responsible for capturing and storing runtime experimental data.
+
+## Analysis
+The process of processing datasets to extract metrics, evaluate errors, or validate models.
+
+## Visualization
+The graphical presentation of live or recorded experimental information.
+
+## Configuration
+Structured parameter sets defining how an Experiment, Mechanism, Device, or Algorithm executes.
+
+## Plugin
+An external module extending platform capabilities without modifying core code.
 
 ---
 
-# 15. Dataset
+# 8. Summary
 
-A structured collection of recorded experimental data.
-
-Datasets may contain:
-
-- Measurements
-- Commands
-- Events
-- Metadata
-- Configuration
-
-Datasets are intended for offline analysis and publication.
-
----
-
-# 16. Logger
-
-A software component responsible for recording information generated during a Session or Experiment.
-
-Logging is independent of analysis.
-
----
-
-# 17. Analysis
-
-The process of extracting information from experimental data.
-
-Analysis may include:
-
-- Statistical processing
-- Error estimation
-- Performance evaluation
-- Model validation
-- Visualization
-
-Analysis does not modify recorded data.
-
----
-
-# 18. Visualization
-
-The graphical presentation of experimental information.
-
-Visualization may include:
-
-- Live monitoring
-- Charts
-- Time-series plots
-- Three-dimensional views
-- Dashboards
-
-Visualization is independent of data acquisition.
-
----
-
-# 19. Configuration
-
-A collection of parameters describing how an Experiment is executed.
-
-Configuration may include:
-
-- Hardware selection
-- Control parameters
-- Sampling rates
-- Calibration values
-- Experiment settings
-
-Configuration should be reproducible.
-
----
-
-# 20. Digital Twin
-
-A virtual representation of a physical system synchronized with experimental data.
-
-Digital Twin support is considered a long-term capability of MorphLab and is outside the scope of the initial implementation.
-
----
-
-# 21. Simulation
-
-A computational model that emulates the behavior of a mechanism or subsystem.
-
-Simulation may replace physical hardware during development or validation.
-
-Simulation is not required for every Experiment.
-
----
-
-# 22. Plugin
-
-A software component that extends the platform without modifying its core.
-
-Plugins may introduce:
-
-- Devices
-- Mechanisms
-- Visualizations
-- Analysis tools
-- Communication interfaces
-
----
-
-# 23. Future Terms
-
-Additional terminology shall be introduced only through new RFCs or revisions to this document.
-
----
-
-# 24. Summary
-
-The terminology defined in this RFC establishes the common language of MorphLab.
-
-Future documentation and software should consistently use these definitions to ensure architectural clarity and long-term maintainability.
-
----
-
-## Relationship to Other RFCs
-
-This document defines the official terminology of MorphLab.
-
-Definitions provided here intentionally avoid describing relationships between entities.
-
-The conceptual relationships between these terms are specified in RFC-003 (Domain Model).
+This terminology forms the shared vocabulary of MorphLab. Subsequent documents must adhere to these definitions.

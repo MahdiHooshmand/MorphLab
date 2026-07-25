@@ -6,7 +6,7 @@
 | Title | Platform Vision |
 | Project | MorphLab |
 | Status | Draft |
-| Version | 0.1 |
+| Version | 0.2 |
 | Author | Mahdi Hooshmand |
 | Created | YYYY-MM-DD |
 
@@ -14,11 +14,11 @@
 
 # 1. Abstract
 
-This document defines the long-term vision, objectives, and guiding philosophy of the MorphLab platform.
+This document defines the long-term vision, objectives, guiding philosophy, and open-source model of the MorphLab platform.
 
-MorphLab is a modular research platform intended to support the development, evaluation, and validation of mechatronic mechanisms, sensing systems, and control algorithms.
+MorphLab is a modular research platform and growing ecosystem intended to support the development, evaluation, and validation of mechatronic mechanisms, sensing systems, and control algorithms.
 
-The platform is designed as a reusable research environment rather than software dedicated to a single mechanism or experiment.
+The platform is designed as a reusable research environment and asset registry rather than software dedicated to a single mechanism or experiment.
 
 ---
 
@@ -28,46 +28,44 @@ Research projects in mechatronics often require repeatedly implementing similar 
 
 As hardware evolves, a significant portion of software is rewritten instead of reused.
 
-MorphLab aims to separate reusable experimental infrastructure from hardware-specific implementations, allowing researchers to focus on scientific and engineering challenges instead of rebuilding supporting software.
+MorphLab aims to separate reusable experimental infrastructure from hardware-specific implementations, allowing researchers to focus on scientific and engineering challenges while continuously contributing back drivers, control algorithms, and experiment templates to a shared platform ecosystem.
 
 ---
 
 # 3. Vision
 
-The long-term vision of MorphLab is to become a unified experimental platform capable of supporting the complete lifecycle of mechatronic research.
+The long-term vision of MorphLab is to become a unified, community-driven experimental ecosystem capable of supporting the complete lifecycle of mechatronic research.
 
-The platform should provide a common environment for:
+The platform provides a common environment for:
 
-- mechanism development
-- controller development
-- sensor integration
-- experiment execution
-- data acquisition
-- visualization
-- analysis
-- algorithm evaluation
-- reproducible research
+- Mechanism development
+- Controller and driver development
+- Sensor integration and calibration
+- Experiment execution
+- Data acquisition and logging
+- Live visualization and offline analysis
+- Control algorithm evaluation
+- Reproducible research and academic benchmarking
 
-In the long term, the platform should also provide the necessary foundation for Digital Twin technologies, enabling synchronization between physical systems and their virtual representations without requiring fundamental architectural changes.
+Through continuous use, every experiment enriches the ecosystem by expanding its driver libraries, algorithm packages, and example workflows.
+
+In the long term, the platform will also provide the necessary foundation for Digital Twin technologies, enabling synchronization between physical systems and their virtual representations without requiring fundamental architectural changes.
 
 ---
 
 # 4. Scope
 
-MorphLab is intended for laboratory research, academic projects, and rapid prototyping.
+MorphLab is intended for laboratory research, academic projects, rapid prototyping, and open collaborative engineering.
 
 Typical applications include:
 
 - Development of experimental mechanisms
-- Control algorithm research
-- Sensor evaluation
-- Kinematic analysis
-- Dynamic analysis
-- Calibration
-- Data acquisition
-- Data visualization
-- Experimental validation
-- Academic publications
+- Control algorithm research and comparison
+- Sensor evaluation and noise characterization
+- Kinematic and dynamic analysis
+- Calibration pipelines
+- Experimental validation for academic publications
+- Open-source benchmark hardware and software setups
 
 ---
 
@@ -76,13 +74,12 @@ Typical applications include:
 MorphLab is not intended to become:
 
 - An industrial automation framework
-- A PLC programming environment
 - A hard real-time operating system
 - A CAD system
 - A physics simulation engine
 - A commercial robotics framework
 
-Integration with such systems may be supported in future versions.
+Integration with such systems may be supported through external plugins and adapters.
 
 ---
 
@@ -90,91 +87,77 @@ Integration with such systems may be supported in future versions.
 
 ## Research First
 
-The platform exists to accelerate scientific research.
-
-Architectural decisions should prioritize flexibility, extensibility, and observability over optimization for a single application.
+The platform exists to accelerate scientific research. Architectural decisions prioritize flexibility, extensibility, and observability over optimization for a single application.
 
 ---
 
-## Experiment-Centric
+## Experiment-Centric & Growing Ecosystem
 
-Experiments are the primary unit of work.
-
-Mechanisms, sensors, controllers, algorithms, and visualization tools exist to support experimental workflows.
+Experiments are the primary unit of work. Every experiment consumes existing platform assets and produces reusable drivers, algorithms, and templates back into the platform libraries.
 
 ---
 
 ## Hardware Independence
 
-The platform should minimize dependency on specific hardware.
-
-Controllers, communication methods, sensors, and computing devices are expected to evolve independently.
+The platform minimizes dependency on specific hardware. Controllers, communication methods, sensors, and computing devices evolve independently.
 
 ---
 
-## Mechanism Independence
+## Reusability by Default
 
-No mechanism should receive special treatment.
-
-Each mechanism should integrate into the platform through common abstractions.
-
----
-
-## Extensibility
-
-Future capabilities should be added with minimal modification to existing components.
+Hardware drivers, sensor readers, and control algorithms developed during an experiment should be decoupled from experiment-specific logic so they can be published into standard libraries.
 
 ---
 
 ## Reproducibility
 
-Experimental configurations, acquired data, algorithms, and metadata should be preserved to enable reproducible research.
+Experimental configurations, acquired data, algorithms, and metadata are preserved to enable reproducible research.
 
 ---
 
 ## Separation of Concerns
 
-Communication, control, visualization, analysis, logging, and hardware integration should remain independent responsibilities.
+Communication, control, visualization, analysis, logging, and hardware integration remain independent responsibilities.
 
 ---
 
-# 7. Long-Term Objectives
+# 7. Open Source & Community Model
 
-MorphLab should gradually evolve toward supporting:
+MorphLab is released as an open-source project under the permissive **MIT License**.
 
-- Multiple experimental mechanisms
-- Multiple controller architectures
-- Multiple sensor systems
-- Distributed computing
-- Remote experimentation
-- Digital Twin integration
-- Hardware-in-the-loop experiments
-- Software-in-the-loop experiments
-- Automated experiment pipelines
+- The core platform, official libraries, and reference drivers are free to use, modify, and distribute.
+- Academic publications and commercial projects using MorphLab are only required to provide standard attribution as permitted by the license.
+- Financial support and sustainability rely on voluntary grants, sponsorships, and community donations.
 
 ---
 
-# 8. Out of Scope
+# 8. Long-Term Objectives
+
+MorphLab aims to gradually evolve toward supporting:
+
+- A comprehensive standard library of motor drivers, sensor interfaces, and control algorithms
+- A certification system for community-contributed libraries
+- Distributed computing and heterogeneous network setups
+- Digital Twin integration and Hardware-in-the-Loop (HIL) testing
+- Automated experiment pipelines and benchmarking datasets
+
+---
+
+# 9. Out of Scope
 
 This RFC intentionally does not define:
 
-- Software architecture
-- Runtime architecture
-- Programming languages
-- APIs
-- Communication protocols
-- Hardware platforms
-- File formats
-- Internal modules
+- Software architecture or runtime design
+- Programming languages or frameworks
+- APIs and communication protocols
+- Specific hardware drivers or file formats
 
 These subjects are specified by subsequent RFCs, ADRs, Standards, and Specifications.
 
 ---
 
-# 9. Summary
+# 10. Summary
 
-MorphLab is intended to become a reusable research platform for experimental mechatronics.
+MorphLab is a reusable research platform and accumulating ecosystem for experimental mechatronics.
 
-Individual mechanisms, controllers, sensors, and experimental setups are expected to evolve continuously.
-
-The platform itself should remain stable, extensible, and reusable across these changes.
+Individual mechanisms, controllers, sensors, and algorithms evolve continuously through experimentation. The platform provides the stable architecture, standard interfaces, and library infrastructure across these changes.
