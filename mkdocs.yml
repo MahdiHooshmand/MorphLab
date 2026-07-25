@@ -17,7 +17,7 @@ nav:
   - ADR:
       - ADR-001: adrs/ADR-001-JSON-Messaging-Protocol-and-Transport-Strategy.md
       - ADR-002: adrs/ADR-002-Execution-Frequency-and-Missing-Data-Strategy.md
-      - ADR-003: adrs/ADR-003-Multi-Source-Time-Synchronization.md
+      - ADR-003: adrs/ADR-003-Multi-Source-Time-Synchronization-and-Manual-Alignment.md
       - ADR-004: adrs/ADR-004-Asset-Repository-Structure-and-Code-Standards.md
       - ADR-005: adrs/ADR-005-Extensible-Safety-Framework.md
   - Standards: standards/
