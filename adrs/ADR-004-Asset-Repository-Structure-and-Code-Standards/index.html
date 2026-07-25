@@ -11,6 +11,10 @@
       
       
       
+        <link rel="prev" href="../ADR-002-Execution-Frequency-and-Missing-Data-Strategy/">
+      
+      
+        <link rel="next" href="../ADR-005-Extensible-Safety-Framework/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>ADR-002: Execution Frequency and Missing Data Strategy - MorphLab</title>
+        <title>ADR-004 - MorphLab</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adr-002-execution-frequency-and-missing-data-strategy" class="md-skip">
+        <a href="#adr-004-asset-repository-structure-and-code-standards" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ADR-002: Execution Frequency and Missing Data Strategy
+              ADR-004
             
           </span>
         </div>
@@ -436,18 +440,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -468,7 +474,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -486,7 +492,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADR-001-JSON-Messaging-Protocol-and-Transport-Strategy.md" class="md-nav__link">
+      <a href="../ADR-001-JSON-Messaging-Protocol-and-Transport-Strategy/" class="md-nav__link">
         
   
   
@@ -514,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADR-002-Execution-Frequency-and-Missing-Data-Strategy.md" class="md-nav__link">
+      <a href="../ADR-002-Execution-Frequency-and-Missing-Data-Strategy/" class="md-nav__link">
         
   
   
@@ -567,10 +573,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ADR-004-Asset-Repository-Structure-and-Code-Standards.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -586,6 +601,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -598,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADR-005-Extensible-Safety-Framework.md" class="md-nav__link">
+      <a href="../ADR-005-Extensible-Safety-Framework/" class="md-nav__link">
         
   
   
@@ -718,7 +734,7 @@
   
 
 
-<h1 id="adr-002-execution-frequency-and-missing-data-strategy">ADR-002: Execution Frequency and Missing Data Strategy<a class="headerlink" href="#adr-002-execution-frequency-and-missing-data-strategy" title="Permanent link">&para;</a></h1>
+<h1 id="adr-004-asset-repository-structure-and-code-standards">ADR-004: Asset Repository Structure and Code Standards<a class="headerlink" href="#adr-004-asset-repository-structure-and-code-standards" title="Permanent link">&para;</a></h1>
 <table>
 <thead>
 <tr>
@@ -729,11 +745,11 @@
 <tbody>
 <tr>
 <td>ADR</td>
-<td>ADR-002</td>
+<td>ADR-004</td>
 </tr>
 <tr>
 <td>Title</td>
-<td>Execution Frequency and Missing Data Strategy</td>
+<td>Asset Repository Structure and Code Standards</td>
 </tr>
 <tr>
 <td>Project</td>
@@ -753,32 +769,30 @@
 </tr>
 <tr>
 <td>RFC Reference</td>
-<td>RFC-003, RFC-005</td>
+<td>RFC-001, RFC-002</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h1 id="1-context">1. Context<a class="headerlink" href="#1-context" title="Permanent link">&para;</a></h1>
-<p>In mechatronic experimentation, control loops and sensor sampling rates vary widely depending on sensor hardware, processing bandwidth, and physical mechanism dynamics. Furthermore, network communication or hardware glitches can result in dropped packets or transmission delays.</p>
+<p>To fulfill MorphLab's vision as an accumulating ecosystem, code created during experiments (drivers, control algorithms, templates) must be structured for long-term maintainability without creating high barriers to entry for non-software engineers.</p>
 <hr />
 <h1 id="2-decision">2. Decision<a class="headerlink" href="#2-decision" title="Permanent link">&para;</a></h1>
 <ol>
-<li><strong>Execution Rate Freedom:</strong> The core platform does not impose artificial rate caps on data streams or control loop frequencies. Sampling and command dispatch operate at the maximum achievable rate dictated by hardware constraints.</li>
-<li><strong>Missing/Delayed Data Handling Strategy:</strong></li>
-<li>When incoming observations are delayed or dropped, the platform applies data estimation algorithms to maintain execution continuity.</li>
-<li><strong>Project 001 Baseline:</strong> Linear extrapolation based on the last two valid data points is adopted as the primary estimation method.</li>
-<li><strong>Future Flexibility:</strong> The platform architecture supports configurable estimation modules (e.g., zero-order hold, higher-order polynomial fitting, or Kalman state estimation) selectable per experiment.</li>
+<li><strong>Initial Repository Strategy (Project 001):</strong> Drivers, algorithms, and example workflows for Project 001 are organized in separate, modular repositories/packages (Polyrepo approach) from day one to enforce clean separation of concerns.</li>
+<li><strong>Ecosystem Evolution Flexibility:</strong> For future experiments, repository layout choices (Monorepo vs. Polyrepo) remain at the researcher's discretion based on project scope.</li>
+<li><strong>Software Architecture Standards:</strong> Development should adhere to clean software design principles (e.g., SOLID) where feasible. However, strict compliance is optional for early-stage experiments and is enforced progressively through the certification tier system defined in RFC-002 (Tier 1: Experimental, Tier 2: Standardized, Tier 3: Certified).</li>
 </ol>
 <hr />
 <h1 id="3-consequences">3. Consequences<a class="headerlink" href="#3-consequences" title="Permanent link">&para;</a></h1>
 <h3 id="positive">Positive<a class="headerlink" href="#positive" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Platform runtime maximizes hardware capability without arbitrary software bottlenecks.</li>
-<li>Control loops remain stable during transient communication drops due to deterministic extrapolation.</li>
+<li>Enforces modular driver and algorithm design from the first experiment.</li>
+<li>Lowers entry barriers for researchers while providing a structured path toward code standardization.</li>
 </ul>
 <h3 id="negative-trade-offs">Negative / Trade-offs<a class="headerlink" href="#negative-trade-offs" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Extrapolation introduces estimation error during high-frequency physical transients if packet loss spans multiple consecutive cycles.</li>
+<li>Managing multiple repositories requires clear dependency tracking across packages.</li>
 </ul>
 
 

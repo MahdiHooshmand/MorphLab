@@ -11,6 +11,10 @@
       
       
       
+        <link rel="prev" href="../../rfcs/RFC-005-Design-Principles/">
+      
+      
+        <link rel="next" href="../ADR-002-Execution-Frequency-and-Missing-Data-Strategy/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>ADR-003: Multi-Source Time Synchronization and Manual Alignment - MorphLab</title>
+        <title>ADR-001 - MorphLab</title>
       
     
     
@@ -62,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#adr-003-multi-source-time-synchronization-and-manual-alignment" class="md-skip">
+        <a href="#adr-001-json-messaging-protocol-and-transport-strategy" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ADR-003: Multi-Source Time Synchronization and Manual Alignment
+              ADR-001
             
           </span>
         </div>
@@ -436,18 +440,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -468,7 +474,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -483,10 +489,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../ADR-001-JSON-Messaging-Protocol-and-Transport-Strategy.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -502,6 +517,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -514,7 +530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADR-002-Execution-Frequency-and-Missing-Data-Strategy.md" class="md-nav__link">
+      <a href="../ADR-002-Execution-Frequency-and-Missing-Data-Strategy/" class="md-nav__link">
         
   
   
@@ -570,7 +586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADR-004-Asset-Repository-Structure-and-Code-Standards.md" class="md-nav__link">
+      <a href="../ADR-004-Asset-Repository-Structure-and-Code-Standards/" class="md-nav__link">
         
   
   
@@ -598,7 +614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ADR-005-Extensible-Safety-Framework.md" class="md-nav__link">
+      <a href="../ADR-005-Extensible-Safety-Framework/" class="md-nav__link">
         
   
   
@@ -718,7 +734,7 @@
   
 
 
-<h1 id="adr-003-multi-source-time-synchronization-and-manual-alignment">ADR-003: Multi-Source Time Synchronization and Manual Alignment<a class="headerlink" href="#adr-003-multi-source-time-synchronization-and-manual-alignment" title="Permanent link">&para;</a></h1>
+<h1 id="adr-001-json-messaging-protocol-and-transport-strategy">ADR-001: JSON Messaging Protocol and Transport Strategy<a class="headerlink" href="#adr-001-json-messaging-protocol-and-transport-strategy" title="Permanent link">&para;</a></h1>
 <table>
 <thead>
 <tr>
@@ -729,11 +745,11 @@
 <tbody>
 <tr>
 <td>ADR</td>
-<td>ADR-003</td>
+<td>ADR-001</td>
 </tr>
 <tr>
 <td>Title</td>
-<td>Multi-Source Time Synchronization and Manual Alignment</td>
+<td>JSON Messaging Protocol and Transport Strategy</td>
 </tr>
 <tr>
 <td>Project</td>
@@ -753,29 +769,41 @@
 </tr>
 <tr>
 <td>RFC Reference</td>
-<td>RFC-005 (Section 2.7)</td>
+<td>RFC-005 (Section 2.5 &amp; 2.6)</td>
 </tr>
 </tbody>
 </table>
 <hr />
 <h1 id="1-context">1. Context<a class="headerlink" href="#1-context" title="Permanent link">&para;</a></h1>
-<p>MorphLab gathers data from disparate hardware devices (e.g., USB-connected ESP32 and WiFi-connected smartphone) operating on independent system clocks. To evaluate kinematics, dynamics, and kinematic errors accurately, data streams must be temporally synchronized.</p>
+<p>MorphLab requires a flexible, decoupled, and human-readable messaging protocol to exchange data between heterogeneous hardware nodes (e.g., Linux Laptop host, ESP32 microcontrollers, and Android smartphones).</p>
+<p>The platform requires minimal mandatory overhead to allow rapid integration of low-resource devices while maintaining structured data exchange across different device categories.</p>
 <hr />
 <h1 id="2-decision">2. Decision<a class="headerlink" href="#2-decision" title="Permanent link">&para;</a></h1>
 <ol>
-<li><strong>Online Execution:</strong> The platform includes automated event-driven synchronization logic for real-time processing. This logic detects distinctive excitation events (such as motion onset or physical impact spikes in IMU and potentiometer data) to dynamically align timeline origins.</li>
-<li><strong>Offline Analysis:</strong> Post-experiment workflows provide interactive manual time-shift tools. Researchers can manually adjust temporal offsets across multi-sensor datasets to refine synchronization prior to scientific reporting and model fitting.</li>
+<li><strong>Format:</strong> All telemetry, commands, and observations exchanged over IP and Serial networks shall use JSON-encoded text packets.</li>
+<li><strong>Minimal Schema Requirements:</strong></li>
+<li><strong>Base Packet (All Nodes):</strong> Must contain only two mandatory fields:<ul>
+<li><code>id</code>: String identifier for the source device or module.</li>
+<li><code>timestamp</code>: Numeric timestamp (local hardware tick or epoch).</li>
+</ul>
+</li>
+<li><strong>Sensor Observations:</strong> Must include a <code>value</code> field containing numerical data, arrays, or structured sensor readings.</li>
+<li><strong>Actuator Commands:</strong> Payload fields are dynamic and customized based on the target actuator type (e.g., PWM duty cycles, desired position, step counts). All additional metadata fields remain optional.</li>
+<li><strong>Transport Protocol:</strong></li>
+<li><strong>IP-Based Nodes (WiFi/Network):</strong> <strong>WebSockets</strong> is selected as the primary transport protocol. The host system (Laptop) operates as the high-capacity WebSocket Server, while smart devices (Android) and microcontrollers (ESP32) act as lightweight WebSocket Clients. Standard TCP/UDP sockets remain supported as secondary fallbacks for ultra-constrained hardware.</li>
+<li><strong>Direct Hardware (USB/Serial):</strong> Standard framing over UART/Serial is used for microcontrollers connected directly via USB.</li>
 </ol>
 <hr />
 <h1 id="3-consequences">3. Consequences<a class="headerlink" href="#3-consequences" title="Permanent link">&para;</a></h1>
 <h3 id="positive">Positive<a class="headerlink" href="#positive" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Eliminates the requirement for complex hardware clock-sync lines (like IEEE 1588 PTP) across heterogeneous experimental setups.</li>
-<li>Grants researchers full manual authority over data alignment for publication-grade precision.</li>
+<li>High developer accessibility, ease of debugging, and human readability.</li>
+<li>Minimal mandatory payload size ensures rapid driver implementation.</li>
+<li>WebSocket provides bi-directional, full-duplex communication with low overhead for WiFi-connected devices.</li>
 </ul>
 <h3 id="negative-trade-offs">Negative / Trade-offs<a class="headerlink" href="#negative-trade-offs" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Automated online alignment requires a distinct excitation signal or movement phase at the start of an experiment session.</li>
+<li>Text-based JSON incurs slightly higher network bandwidth compared to packed binary protocols, which is acceptable for the laboratory bandwidth in scope.</li>
 </ul>
 
 
