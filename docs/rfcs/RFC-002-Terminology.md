@@ -6,7 +6,7 @@
 | Title | Terminology |
 | Project | MorphLab |
 | Status | Draft |
-| Version | 0.2 |
+| Version | 0.3 |
 | Author | Mahdi Hooshmand |
 | Created | YYYY-MM-DD |
 
@@ -85,11 +85,22 @@ A mathematical or computational procedure responsible for determining Commands b
 ## Driver
 A software module providing a standardized abstraction for interacting with a specific Device, Sensor, or Actuator (e.g., potentiometer driver, Android IMU receiver).
 
+## Component
+A reusable software module composing two or more Drivers (or other Components) into a
+higher-level, still hardware-generic building block — e.g., an encoder, a motor, and a
+motor driver channel combined into one drivable, readable degree of freedom. A
+Component is not itself an atomic Driver; it does not fit the "one device capability
+per Driver" rule but remains reusable across Experiments (pins, ratios, and Driver
+instances are supplied by the caller). See ADR-006.
+
 ## Algorithm Library
 A structured repository of generic, hardware-independent Control Algorithms.
 
 ## Driver Library
 A structured repository of reusable hardware Drivers.
+
+## Component Library
+A structured repository of reusable Components (see ADR-006).
 
 ## Certification Tier (Badge)
 A standard classification indicating the maturity, quality, test coverage, and specification compliance of a Library asset:

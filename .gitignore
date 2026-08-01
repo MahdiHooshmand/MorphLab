@@ -8,3 +8,7 @@ __pycache__/
 
 .vscode/*
 !.vscode/settings.json
+!.vscode/extensions.json
+
+# MicroPython firmware binaries (downloaded locally per experiment, not versioned)
+*.bin

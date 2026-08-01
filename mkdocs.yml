@@ -20,8 +20,13 @@ nav:
       - ADR-003: adrs/ADR-003-Multi-Source-Time-Synchronization-and-Manual-Alignment.md
       - ADR-004: adrs/ADR-004-Asset-Repository-Structure-and-Code-Standards.md
       - ADR-005: adrs/ADR-005-Extensible-Safety-Framework.md
-  - Standards: standards/
-  - Specifications: specifications/
+      - ADR-006: adrs/ADR-006-Reusable-Component-Layer.md
+  - Standards:
+      - STD-001: standards/STD-001-Driver-and-Component-Interface-Conventions.md
+  - Specifications:
+      - SPEC-001: specifications/SPEC-001-Project-001-Ankle-Mechanism.md
+  - Implementation:
+      - IMPL-001: implementation/IMPL-001-Project-001-Build-Log.md
 
 markdown_extensions:
   - admonition
