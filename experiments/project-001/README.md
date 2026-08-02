@@ -11,10 +11,14 @@ Certification tier: **Tier 1 — Experimental**.
 
 - `firmware/` — the code that runs *on* the ESP32 (`boot.py`, `main.py`). Imports drivers
   from `registry/drivers/esp32_micropython/` at upload time (see `scripts/run.sh`).
+- `mechanism/` — this experiment's composition root (`ankle_mechanism.py`), combining
+  reusable joints from `registry/components/`.
 - `scripts/` — cross-platform (Ubuntu + Windows) setup/flash/run scripts.
-- `.vscode/` — editor config for MicroPython development.
 - `docs/` — step-by-step build log (setup, test procedure, expected output) and hardware
   datasheets for this experiment's mechanism.
+
+> Editor config (`.vscode/`) lives at the **repo root** (`MorphLab/.vscode/`), not here —
+> open `MorphLab` itself in VS Code, not this subfolder. See `docs/STEP-00-ENV-SETUP.md`.
 
 ## Mechanism
 

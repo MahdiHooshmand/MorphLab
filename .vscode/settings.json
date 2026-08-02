@@ -1,17 +1,23 @@
 {
-    "editor.wordWrap": "on",
+  "python.defaultInterpreterPath": "${workspaceFolder}/experiments/project-001/.venv/bin/python",
+  "python.terminal.activateEnvironment": true,
 
-    "files.trimTrailingWhitespace": true,
+  "python.analysis.extraPaths": [
+    "registry/drivers/esp32_micropython",
+    "registry/components",
+    "experiments/project-001/mechanism"
+  ],
+  "python.autoComplete.extraPaths": [
+    "registry/drivers/esp32_micropython",
+    "registry/components",
+    "experiments/project-001/mechanism"
+  ],
 
-    "files.insertFinalNewline": true,
-
-    "markdown.preview.breaks": true,
-
-    "markdown.extension.toc.updateOnSave": true,
-
-    "markdownlint.config": {
-        "MD013": false
-    },
-
-    "editor.formatOnSave": true
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  },
+  "files.associations": {
+    "*.py": "python"
+  }
 }

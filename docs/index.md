@@ -15,6 +15,9 @@ The complete documentation is available through GitHub Pages.
 - `experiments/` — one folder per experiment (RFC-003 "Experiment"). The first is
   `experiments/project-001/`, which binds pins/config to drivers from `registry/`.
 
+Open **this folder** (`MorphLab`) in VS Code, not a subfolder — `.vscode/settings.json`
+here sets up import resolution across `registry/` and `experiments/`.
+
 ## License
 
 MIT
